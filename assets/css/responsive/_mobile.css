@@ -1,0 +1,146 @@
+/* ================================
+   RESPONSIVE: MÓVIL
+   ================================ */
+
+@media (max-width: 767px) {
+    /* Tipografía móvil */
+    h1 { 
+        font-size: 2.2rem; 
+    }
+    
+    h2 { 
+        font-size: 1.8rem; 
+    }
+    
+    /* Espaciado móvil */
+    .section {
+        padding: 60px 0;
+    }
+    
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+    
+    /* Navegación móvil */
+    .nav__list {
+        position: fixed;
+        top: var(--header-height);
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - var(--header-height));
+        background-color: var(--color-white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        transition: left var(--transition-slow);
+        box-shadow: var(--shadow-medium);
+    }
+    
+    .nav__list--show {
+        left: 0;
+    }
+    
+    .nav__toggle {
+        display: block;
+    }
+    
+    .nav__link {
+        font-size: 1.2rem;
+        padding: var(--spacing-md) 0;
+    }
+    
+    /* Grid de productos móvil */
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    /* Hero móvil */
+    .hero {
+        height: 70vh;
+        min-height: 350px;
+    }
+    
+    .hero__content {
+        padding: 0 var(--spacing-lg);
+    }
+    
+    .hero__title {
+        font-size: 2rem;
+    }
+    
+    .hero__slogan {
+        font-size: 1rem;
+    }
+    
+    /* Modal móvil */
+    .modal__content {
+        width: 95%;
+        margin: var(--spacing-lg);
+        max-height: 85vh;
+    }
+    
+    .modal__image-container {
+        height: 250px;
+    }
+    
+    .modal__info {
+        padding: var(--spacing-lg);
+    }
+    
+    .modal__sizes-list {
+        gap: var(--spacing-xs);
+    }
+    
+    .modal__size {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+    
+    /* Filtros del catálogo móvil */
+    .catalog__filters {
+        gap: var(--spacing-xs);
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .catalog__filter-btn {
+        padding: 8px var(--spacing-md);
+        font-size: 0.9rem;
+    }
+    
+    /* Contacto móvil */
+    .contact__content {
+        padding: var(--spacing-xl);
+        margin: 0 var(--spacing-sm);
+    }
+    
+    .contact__info {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    /* Botones móvil */
+    .btn {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: 0.9rem;
+    }
+    
+    .btn--large {
+        padding: var(--spacing-md) var(--spacing-xl);
+        font-size: 1rem;
+    }
+    
+    /* Tarjetas de producto móvil */
+    .product-card__info {
+        padding: var(--spacing-md);
+    }
+    
+    .product-card__title {
+        font-size: 1.1rem;
+    }
+    
+    .product-card__price {
+        font-size: 1.2rem;
+    }
+}

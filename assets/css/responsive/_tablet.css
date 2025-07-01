@@ -1,0 +1,55 @@
+/* ================================
+   RESPONSIVE: TABLET
+   ================================ */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Modal ajustes para tablet */
+    .modal__content {
+        grid-template-columns: 1fr 1fr;
+        max-width: 700px;
+    }
+    
+    .modal__image {
+        border-top-right-radius: 0;
+        border-bottom-left-radius: var(--border-radius);
+    }
+    
+    .modal__image-container {
+        height: 100%;
+    }
+    
+    /* Ajustes de grid para tablet */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    /* Hero ajustes */
+    .hero__content {
+        padding: 0 var(--spacing-xl);
+    }
+    
+    /* Navegación para tablet */
+    .nav__list {
+        gap: var(--spacing-lg);
+    }
+    
+    /* Secciones para tablet */
+    .section {
+        padding: 60px 0;
+    }
+    
+    /* Filtros del catálogo */
+    .catalog__filters {
+        gap: var(--spacing-sm);
+    }
+    
+    /* Contacto para tablet */
+    .contact__content {
+        padding: 40px;
+    }
+    
+    .contact__info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

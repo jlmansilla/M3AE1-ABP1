@@ -1,0 +1,104 @@
+/* ================================
+   VERDÉMODA - ARCHIVO CSS PRINCIPAL
+   Estructura BEM + Responsive Design
+   ================================ */
+
+/* ================================
+   1. FUNDAMENTOS BASE
+   ================================ */
+@import url('base/_variables.css');
+@import url('base/_reset.css');
+@import url('base/_typography.css');
+@import url('base/_utilities.css');
+
+/* ================================
+   2. COMPONENTES REUTILIZABLES
+   ================================ */
+@import url('components/_button.css');
+@import url('components/_product-card.css');
+@import url('components/_modal.css');
+
+/* ================================
+   3. ESTRUCTURA DE LAYOUT
+   ================================ */
+@import url('layout/_header.css');
+@import url('layout/_navigation.css');
+@import url('layout/_footer.css');
+
+/* ================================
+   4. PÁGINAS ESPECÍFICAS
+   ================================ */
+@import url('pages/_home.css');
+@import url('pages/_catalog.css');
+@import url('pages/_contact.css');
+
+/* ================================
+   5. RESPONSIVE DESIGN
+   ================================ */
+@import url('responsive/_tablet.css');
+@import url('responsive/_mobile.css');
+
+/* ================================
+   6. UTILIDADES ADICIONALES
+   ================================ */
+
+/* Animaciones y transiciones globales */
+* {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mejoras de rendimiento */
+.product-card__image,
+.modal__image,
+.hero {
+    will-change: transform;
+}
+
+/* Scroll suave mejorado */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Reducir animaciones para usuarios con preferencias de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus visible para mejor accesibilidad */
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Mejoras de contraste para texto sobre imágenes */
+.hero h1,
+.hero p {
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8), 1px 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* Estados de carga */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Utilidades para ocultar elementos visualmente pero mantenerlos accesibles */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

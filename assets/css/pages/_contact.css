@@ -1,0 +1,80 @@
+/* ================================
+   PÁGINA: CONTACTO (BEM)
+   ================================ */
+
+/* Contenido principal del contacto */
+.contact__content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: var(--color-white);
+    padding: var(--spacing-xxl);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+.contact__title {
+    margin-bottom: var(--spacing-xl);
+    color: var(--color-primary);
+}
+
+.contact__description {
+    margin-bottom: var(--spacing-xl);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+.contact__button {
+    margin-top: var(--spacing-lg);
+}
+
+/* Información de contacto adicional */
+.contact__info {
+    display: grid;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xxl);
+}
+
+.contact__info-item {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+.contact__info-icon {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.contact__info-title {
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact__info-text {
+    color: var(--color-text);
+    line-height: 1.5;
+}
+
+/* Sección de contacto */
+.contact-section {
+    background: linear-gradient(135deg, var(--color-light), var(--color-secondary));
+    position: relative;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%234A6B5D" fill-opacity="0.03"><circle cx="30" cy="30" r="2"/></g></svg>');
+    opacity: 0.5;
+}

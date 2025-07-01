@@ -1,0 +1,23 @@
+<svg width="400" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vestidoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#vestidoGradient)"/>
+  
+  <!-- Silueta de vestido -->
+  <path d="M200 80 L180 120 L160 200 L150 350 L140 480 L260 480 L250 350 L240 200 L220 120 Z" fill="#A8D5BA" opacity="0.8"/>
+  
+  <!-- Detalles del vestido -->
+  <circle cx="200" cy="90" r="15" fill="#4A6B5D" opacity="0.6"/>
+  <line x1="170" y1="140" x2="230" y2="140" stroke="#4A6B5D" stroke-width="2" opacity="0.5"/>
+  
+  <text x="200" y="30" font-family="Arial, sans-serif" font-size="16" fill="#4A6B5D" text-anchor="middle" font-weight="bold">
+    Vestido "Brisa de Verano"
+  </text>
+  <text x="200" y="50" font-family="Arial, sans-serif" font-size="12" fill="#4A6B5D" text-anchor="middle">
+    Lino Orgánico
+  </text>
+</svg>

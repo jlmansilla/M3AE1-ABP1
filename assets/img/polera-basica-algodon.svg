@@ -1,0 +1,25 @@
+<svg width="400" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="poleraGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f1f3f4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8eaed;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#poleraGradient)"/>
+  
+  <!-- Silueta de polera -->
+  <path d="M200 80 L160 100 L160 180 L150 320 L250 320 L240 180 L240 100 Z" fill="#4A6B5D" opacity="0.8"/>
+  <!-- Mangas -->
+  <ellipse cx="130" cy="130" rx="25" ry="40" fill="#4A6B5D" opacity="0.6"/>
+  <ellipse cx="270" cy="130" rx="25" ry="40" fill="#4A6B5D" opacity="0.6"/>
+  
+  <!-- Cuello -->
+  <ellipse cx="200" cy="85" rx="20" ry="8" fill="none" stroke="#2d3e35" stroke-width="2"/>
+  
+  <text x="200" y="30" font-family="Arial, sans-serif" font-size="16" fill="#4A6B5D" text-anchor="middle" font-weight="bold">
+    Polera Básica
+  </text>
+  <text x="200" y="50" font-family="Arial, sans-serif" font-size="12" fill="#4A6B5D" text-anchor="middle">
+    Algodón Pima Orgánico
+  </text>
+</svg>

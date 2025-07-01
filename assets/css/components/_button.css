@@ -1,0 +1,75 @@
+/* ================================
+   COMPONENTE: BOTÓN (BEM)
+   ================================ */
+
+/* Bloque base del botón */
+.btn {
+    display: inline-block;
+    padding: 12px var(--spacing-xl);
+    border-radius: var(--border-radius-pill);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-base);
+    cursor: pointer;
+    border: 2px solid transparent;
+    text-align: center;
+    font-family: inherit;
+    font-size: var(--font-size-base);
+}
+
+/* Modificadores del botón */
+.btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn--primary:hover {
+    background-color: #3b564a;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn--secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn--secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn--accent {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+.btn--accent:hover {
+    background-color: #c8956e;
+    transform: translateY(-2px);
+}
+
+/* Modificadores de tamaño */
+.btn--small {
+    padding: 8px var(--spacing-lg);
+    font-size: 0.9rem;
+}
+
+.btn--large {
+    padding: var(--spacing-md) 40px;
+    font-size: 1.1rem;
+}
+
+/* Estados del botón */
+.btn:disabled,
+.btn--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerdeModa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+    <!-- ======================= HEADER ======================= -->
+    <header class="header" id="header">
+        <div class="header__container container">
+            <a href="#" class="header__logo" data-page="home">VerdeModa</a>
+            <nav class="nav">
+                <ul class="nav__list" id="nav-list">
+                    <li class="nav__item"><a href="#home" class="nav__link nav__link--active" data-page="home">Home</a></li>
+                    <li class="nav__item"><a href="#catalog" class="nav__link" data-page="catalog">Catálogo</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link" data-page="contact">Contacto</a></li>
+                </ul>
+                <div class="nav__toggle" id="nav-toggle">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ======================= HOME ======================= -->
+        <div id="home" class="page page--active">
+            <section class="hero">
+                <div class="hero__content">
+                    <h1>Viste consciente, vive sostenible.</h1>
+                    <p class="hero__slogan">Descubre moda que cuida de ti y del planeta.</p>
+                </div>
+            </section>
+            <section class="section container">
+                <h2 class="section__title">Productos Destacados</h2>
+                <div class="product-grid" id="featured-products">
+                    <!-- Productos destacados se insertarán aquí con JS -->
+                </div>
+            </section>
+        </div>
+
+        <!-- ======================= CATÁLOGO ======================= -->
+        <div id="catalog" class="page">
+            <section class="section container">
+                <h2 class="section__title">Nuestro Catálogo</h2>
+                <div class="catalog__filters">
+                    <button class="catalog__filter-btn catalog__filter-btn--active" data-filter="all">Todos</button>
+                    <button class="catalog__filter-btn" data-filter="vestuario">Vestuario</button>
+                    <button class="catalog__filter-btn" data-filter="accesorios">Accesorios</button>
+                </div>
+                <div class="product-grid" id="product-grid-catalog">
+                    <!-- Productos del catálogo se insertarán aquí con JS -->
+                </div>
+            </section>
+        </div>
+
+        <!-- ======================= CONTACTO ======================= -->
+        <div id="contact" class="page">
+            <section class="section container">
+                 <div class="contact__content">
+                    <h2 class="section__title">Hablemos</h2>
+                    <p>¿Tienes alguna pregunta o quieres hacer un pedido especial? ¡Estamos aquí para ayudarte! Contáctanos directamente a través de WhatsApp.</p>
+                    <a href="https://wa.me/56912345678?text=Hola!%20Vengo%20del%20sitio%20web%20de%20VerdeModa%20y%20quisiera%20consultar%20por..." target="_blank" class="btn btn--primary">Contactar por WhatsApp</a>
+                 </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 VerdeModa. Todos los derechos reservados.</p>
+            <p>Diseñado con ♥ por un futuro más verde.</p>
+        </div>
+    </footer>
+
+    <!-- ======================= MODAL FICHA DE PRODUCTO ======================= -->
+    <div class="modal" id="product-modal">
+        <div class="modal__content">
+            <button class="modal__close" id="modal-close">&times;</button>
+            <div class="modal__image-container">
+                <img src="" alt="Imagen de producto" class="modal__image" id="modal-img">
+            </div>
+            <div class="modal__info">
+                <p class="modal__category" id="modal-category"></p>
+                <h3 class="modal__title" id="modal-title"></h3>
+                <p class="modal__description" id="modal-description"></p>
+                <p class="modal__sizes-title">Tallas Disponibles:</p>
+                <div class="modal__sizes-list" id="modal-sizes"></div>
+                <h3 class="product-card__price" id="modal-price"></h3>
+                <br>
+                <a href="https://wa.me/56912345678?text=Hola!%20Me%20interesa%20el%20producto..." target="_blank" class="btn btn--primary" id="modal-whatsapp-btn">Consultar por WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // =================================
+        // DATOS DE PRODUCTOS (SIMULACIÓN DB)
+        // =================================
+        const products = [
+            {
+                id: 1,
+                name: 'Vestido "Brisa de Verano"',
+                category: 'vestuario',
+                price: '$45.990',
+                description: 'Un vestido ligero y fresco, hecho 100% de lino orgánico. Perfecto para días soleados, con un corte que favorece todas las siluetas.',
+                imageUrl: 'assets/img/vestido-brisa-verano.svg',
+                sizes: ['XS', 'S', 'M', 'L'],
+                featured: true
+            },
+            {
+                id: 2,
+                name: 'Polera Básica de Algodón',
+                category: 'vestuario',
+                price: '$22.990',
+                description: 'Nuestra polera esencial, increíblemente suave y duradera. Hecha con algodón pima orgánico certificado. Un básico que no puede faltar.',
+                imageUrl: 'assets/img/polera-basica-algodon.svg',
+                sizes: ['S', 'M', 'L', 'XL'],
+                featured: false
+            },
+            {
+                id: 3,
+                name: 'Bolso "Tierra" de Yute',
+                category: 'accesorios',
+                price: '$34.990',
+                description: 'Un bolso espacioso y resistente, tejido a mano por artesanos locales con fibra de yute natural. Ideal para el mercado o un día de playa.',
+                imageUrl: 'assets/img/bolso-tierra-yute.svg',
+                sizes: ['Única'],
+                featured: true
+            },
+            {
+                id: 4,
+                name: 'Pantalón "Nómada" de Cáñamo',
+                category: 'vestuario',
+                price: '$59.990',
+                description: 'Pantalones cómodos y versátiles, confeccionados con una mezcla de cáñamo y algodón orgánico. Transpirables y resistentes para cualquier aventura.',
+                imageUrl: 'assets/img/pantalon-nomada-canamo.svg',
+                sizes: ['38', '40', '42', '44'],
+                featured: false
+            },
+            {
+                id: 5,
+                name: 'Collar "Semilla" de Tagua',
+                category: 'accesorios',
+                price: '$19.990',
+                description: 'Un collar elegante y minimalista, con una pieza central de tagua (marfil vegetal) pulida a mano. Cada pieza es única.',
+                imageUrl: 'assets/img/collar-semilla-tagua.svg',
+                sizes: ['Ajustable'],
+                featured: true
+            },
+            {
+                id: 6,
+                name: 'Chaqueta "Bosque" Reciclada',
+                category: 'vestuario',
+                price: '$75.990',
+                description: 'Chaqueta cortavientos fabricada a partir de botellas de plástico recicladas. Ligera, impermeable y con un diseño moderno y funcional.',
+                imageUrl: 'assets/img/chaqueta-bosque-reciclada.svg',
+                sizes: ['S', 'M', 'L'],
+                featured: false
+            }
+        ];
+
+        // =================================
+        // LÓGICA DE NAVEGACIÓN
+        // =================================
+        const navLinks = document.querySelectorAll('.nav__link, .header__logo');
+        const pages = document.querySelectorAll('.page');
+        const navList = document.getElementById('nav-list');
+        const navToggle = document.getElementById('nav-toggle');
+
+        function switchPage(pageId) {
+            pages.forEach(page => {
+                page.classList.remove('page--active');
+                if (page.id === pageId) {
+                    page.classList.add('page--active');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('nav__link--active');
+                if (link.dataset.page === pageId) {
+                    link.classList.add('nav__link--active');
+                }
+            });
+            
+            // Cierra el menú móvil al cambiar de página
+            navList.classList.remove('nav__list--show');
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = link.dataset.page;
+                switchPage(pageId);
+                window.scrollTo(0, 0);
+            });
+        });
+
+        navToggle.addEventListener('click', () => {
+            navList.classList.toggle('nav__list--show');
+        });
+
+        // =================================
+        // RENDERIZADO DE PRODUCTOS
+        // =================================
+        const featuredContainer = document.getElementById('featured-products');
+        const catalogContainer = document.getElementById('product-grid-catalog');
+
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.dataset.productId = product.id;
+            
+            card.innerHTML = `
+                <div class="product-card__image-container">
+                    <img src="${product.imageUrl}" alt="${product.name}" class="product-card__image" loading="lazy">
+                </div>
+                <div class="product-card__info">
+                    <p class="product-card__category">${product.category}</p>
+                    <h4 class="product-card__title">${product.name}</h4>
+                    <p class="product-card__price">${product.price}</p>
+                </div>
+            `;
+            return card;
+        }
+
+        function renderProducts(container, productList) {
+            container.innerHTML = '';
+            productList.forEach(product => {
+                const card = createProductCard(product);
+                container.appendChild(card);
+            });
+        }
+        
+        // Renderizar productos iniciales
+        renderProducts(featuredContainer, products.filter(p => p.featured));
+        renderProducts(catalogContainer, products);
+
+        // =================================
+        // LÓGICA DE FILTROS DEL CATÁLOGO
+        // =================================
+        const filterButtons = document.querySelectorAll('.catalog__filter-btn');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Manejar estado activo del botón
+                filterButtons.forEach(btn => btn.classList.remove('catalog__filter-btn--active'));
+                button.classList.add('catalog__filter-btn--active');
+
+                const filter = button.dataset.filter;
+                let filteredProducts;
+
+                if (filter === 'all') {
+                    filteredProducts = products;
+                } else {
+                    filteredProducts = products.filter(p => p.category === filter);
+                }
+                renderProducts(catalogContainer, filteredProducts);
+            });
+        });
+
+        // =================================
+        // LÓGICA DEL MODAL (FICHA DE PRODUCTO)
+        // =================================
+        const modal = document.getElementById('product-modal');
+        const modalCloseBtn = document.getElementById('modal-close');
+        
+        function openModal(productId) {
+            const product = products.find(p => p.id == productId);
+            if (!product) return;
+
+            document.getElementById('modal-img').src = product.imageUrl;
+            document.getElementById('modal-category').textContent = product.category;
+            document.getElementById('modal-title').textContent = product.name;
+            document.getElementById('modal-description').textContent = product.description;
+            document.getElementById('modal-price').textContent = product.price;
+
+            const sizesContainer = document.getElementById('modal-sizes');
+            sizesContainer.innerHTML = '';
+            product.sizes.forEach(size => {
+                const sizeEl = document.createElement('span');
+                sizeEl.className = 'modal__size';
+                sizeEl.textContent = size;
+                sizesContainer.appendChild(sizeEl);
+            });
+            
+            const whatsappBtn = document.getElementById('modal-whatsapp-btn');
+            whatsappBtn.href = `https://wa.me/56912345678?text=Hola!%20Me%20interesa%20el%20producto%20'${encodeURIComponent(product.name)}'`;
+
+            modal.classList.add('modal--visible');
+            document.body.style.overflow = 'hidden'; // Evita scroll del fondo
+        }
+
+        function closeModal() {
+            modal.classList.remove('modal--visible');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Event listener para abrir el modal (usando delegación de eventos)
+        document.body.addEventListener('click', (e) => {
+            const card = e.target.closest('.product-card');
+            if (card) {
+                openModal(card.dataset.productId);
+            }
+        });
+
+        modalCloseBtn.addEventListener('click', closeModal);
+        
+        // Cerrar modal al hacer clic fuera del contenido
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Cerrar modal con la tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('modal--visible')) {
+                closeModal();
+            }
+        });
+    });
+    </script>
+</body>
+</html>

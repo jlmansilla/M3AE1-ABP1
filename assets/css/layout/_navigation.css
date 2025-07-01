@@ -1,0 +1,72 @@
+/* ================================
+   LAYOUT: NAVEGACIÓN (BEM)
+   ================================ */
+
+/* Bloque principal */
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Elementos de navegación */
+.nav__list {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__item {
+    /* No necesita estilos específicos */
+}
+
+.nav__link {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 600;
+    position: relative;
+    padding: var(--spacing-xs) 0;
+    transition: color var(--transition-fast);
+}
+
+.nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width var(--transition-base);
+}
+
+.nav__link:hover {
+    color: var(--color-primary);
+}
+
+.nav__link:hover::after,
+.nav__link--active::after {
+    width: 100%;
+}
+
+/* Modificador de enlace activo */
+.nav__link--active {
+    color: var(--color-primary);
+}
+
+/* Toggle para móvil */
+.nav__toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-primary);
+    background: none;
+    border: none;
+    padding: var(--spacing-xs);
+    transition: color var(--transition-fast);
+}
+
+.nav__toggle:hover {
+    color: var(--color-accent);
+}

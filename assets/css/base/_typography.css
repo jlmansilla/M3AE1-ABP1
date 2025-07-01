@@ -1,0 +1,59 @@
+/* ================================
+   TIPOGRAFIA
+   ================================ */
+
+/* Títulos principales */
+h1, h2, h3 {
+    font-family: var(--font-headings);
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+h1 { 
+    font-size: var(--font-size-h1); 
+}
+
+h2 { 
+    font-size: var(--font-size-h2); 
+}
+
+h3 { 
+    font-size: var(--font-size-h3); 
+}
+
+/* Clases de utilidad tipográfica */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.font-weight-light {
+    font-weight: 300;
+}
+
+.font-weight-normal {
+    font-weight: 400;
+}
+
+.font-weight-semibold {
+    font-weight: 600;
+}
+
+.font-weight-bold {
+    font-weight: 700;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.letter-spacing {
+    letter-spacing: 1px;
+}

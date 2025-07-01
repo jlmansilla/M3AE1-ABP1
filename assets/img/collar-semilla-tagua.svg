@@ -1,0 +1,36 @@
+<svg width="400" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="collarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fafafa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0f0f0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#collarGradient)"/>
+  
+  <!-- Collar -->
+  <ellipse cx="200" cy="200" rx="80" ry="60" fill="none" stroke="#8B4513" stroke-width="3"/>
+  
+  <!-- Cuentas del collar -->
+  <circle cx="150" cy="180" r="3" fill="#D9A689"/>
+  <circle cx="165" cy="175" r="3" fill="#D9A689"/>
+  <circle cx="180" cy="172" r="3" fill="#D9A689"/>
+  <circle cx="195" cy="170" r="3" fill="#D9A689"/>
+  <circle cx="210" cy="172" r="3" fill="#D9A689"/>
+  <circle cx="225" cy="175" r="3" fill="#D9A689"/>
+  <circle cx="240" cy="180" r="3" fill="#D9A689"/>
+  <circle cx="250" cy="190" r="3" fill="#D9A689"/>
+  <circle cx="255" cy="205" r="3" fill="#D9A689"/>
+  <circle cx="250" cy="220" r="3" fill="#D9A689"/>
+  <circle cx="240" cy="235" r="3" fill="#D9A689"/>
+  
+  <!-- Pieza central de tagua -->
+  <ellipse cx="200" cy="200" rx="12" ry="18" fill="#F5DEB3"/>
+  <ellipse cx="200" cy="200" rx="8" ry="14" fill="#DEB887"/>
+  
+  <text x="200" y="30" font-family="Arial, sans-serif" font-size="16" fill="#4A6B5D" text-anchor="middle" font-weight="bold">
+    Collar "Semilla"
+  </text>
+  <text x="200" y="50" font-family="Arial, sans-serif" font-size="12" fill="#4A6B5D" text-anchor="middle">
+    Tagua (Marfil Vegetal)
+  </text>
+</svg>
