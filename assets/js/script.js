@@ -85,28 +85,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const modal = document.getElementById('product-modal');
     const modalCloseBtn = document.getElementById('modal-close');
+    const modalImg = document.getElementById('modal-img');
+    const modalCategory = document.getElementById('modal-category');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const modalPrice = document.getElementById('modal-price');
+    const modalSizesContainer = document.getElementById('modal-sizes');
+    const modalWhatsappBtn = document.getElementById('modal-whatsapp-btn');
 
     function openModal(productId) {
         const product = products.find(p => p.id == productId);
         if (!product) return;
 
-        document.getElementById('modal-img').src = product.imageUrl;
-        document.getElementById('modal-category').textContent = product.category;
-        document.getElementById('modal-title').textContent = product.name;
-        document.getElementById('modal-description').textContent = product.description;
-        document.getElementById('modal-price').textContent = product.price;
+        modalImg.src = product.imageUrl;
+        modalImg.alt = `Imagen de ${product.name}`;
+        modalCategory.textContent = product.category;
+        modalTitle.textContent = product.name;
+        modalDescription.textContent = product.description;
+        modalPrice.textContent = product.price;
 
-        const sizesContainer = document.getElementById('modal-sizes');
-        sizesContainer.innerHTML = '';
+        modalSizesContainer.innerHTML = '';
         product.sizes.forEach(size => {
             const sizeEl = document.createElement('span');
             sizeEl.className = 'modal__size';
             sizeEl.textContent = size;
-            sizesContainer.appendChild(sizeEl);
+            modalSizesContainer.appendChild(sizeEl);
         });
 
-        const whatsappBtn = document.getElementById('modal-whatsapp-btn');
-        whatsappBtn.href = `https://wa.me/56912345678?text=Hola!%20Me%20interesa%20el%20producto%20'${encodeURIComponent(product.name)}'`;
+        modalWhatsappBtn.href = `https://wa.me/56912345678?text=Hola!%20Me%20interesa%20el%20producto%20'${encodeURIComponent(product.name)}'`;
 
         modal.classList.add('modal--visible');
         document.body.style.overflow = 'hidden';
